@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<package format="2">
+    <name>vis_json_line</name>
+    <version>0.0.0</version>
+    <description>The vis_json_line package</description>
+    <maintainer email="mxwu@itri.org.tw">MingXuan Wu</maintainer>
+    <license>ITRI</license>
+    <buildtool_depend>catkin</buildtool_depend>
+</package>

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>pointmap_loader</name>
+  <version>0.0.0</version>
+  <description>The pointmap_loader package</description>
+
+  <maintainer email="mxwu@itri.org.tw">WuMingXuan</maintainer>
+  <license>ITRI</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>roscpp</depend>
+  <depend>pcl_ros</depend>
+  <depend>sensor_msgs</depend>
+
+</package>

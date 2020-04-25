@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<package format="2">
+    <name>label_pointmap</name>
+    <version>0.0.0</version>
+    <description>The label_pointmap package</description>
+    <maintainer email="mxwu@itri.org.tw">MingXuan Wu</maintainer>
+    <license>ITRI</license>
+    <buildtool_depend>catkin</buildtool_depend>
+</package>

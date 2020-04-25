@@ -1,0 +1,13 @@
+<launch>
+
+    <node
+        pkg="lidar_to_map"
+        type="lidar_to_map_node"
+        output="screen"
+        name="lidar_to_map">
+        <rosparam param="input_topics" subst_value="True">
+            ["LidarFront/Raw"]
+        </rosparam>
+    </node>
+
+</launch>

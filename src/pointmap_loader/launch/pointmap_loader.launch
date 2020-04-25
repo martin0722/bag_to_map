@@ -1,0 +1,20 @@
+<launch>
+
+    <arg name="dynamic_loading" default="true"/>
+    <arg name="initialize_with_gnss" default="true"/>
+    <arg name="initial_map_files" default="submap_0_0.pcd, submap_0_-1.pcd"/>
+    <arg name="map_file_directory" default="/home/d300/Desktop/july_demo_pcd_map"/>
+    <arg name="ndt_score_threshold" default="100"/>
+    <arg name="search_radius" default="100"/>
+
+    <node name="map_loader"
+        pkg="pointmap_loader" type="pointmap_loader" output="screen">
+        <param name="initial_map_files" value="$(arg initial_map_files)"/>
+        <param name="dynamic_loading" value="$(arg dynamic_loading)"/>
+        <param name="initialize_with_gnss" value="$(arg initialize_with_gnss)"/>
+        <param name="map_file_directory" value="$(arg map_file_directory)"/>
+        <param name="ndt_score_threshold" value="$(arg ndt_score_threshold)"/>
+        <param name="search_radius" value="$(arg search_radius)"/>
+    </node>
+
+</launch>
