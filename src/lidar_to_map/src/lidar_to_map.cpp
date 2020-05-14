@@ -103,7 +103,6 @@ void LidarToMap::CreateMap(const std::string & outputFolder)
     pcl::getMinMax3D(mMap, minPt, maxPt);
     const auto subMapSize = 100.0;
     auto ix = 0u;
-    auto iy = 0u;
     std::cout << "x:" << minPt.x << "~" << maxPt.x << std::endl;
     std::cout << "y:" << minPt.y << "~" << maxPt.y << std::endl;
     for (auto x{ minPt.x }; x < maxPt.x; x += subMapSize)
@@ -114,6 +113,7 @@ void LidarToMap::CreateMap(const std::string & outputFolder)
         filterX.setFilterLimits(x, x + subMapSize);
         pcl::PointCloud<pcl::PointXYZI> cloudX;
         filterX.filter(cloudX);
+        auto iy = 0u;
         for (auto y{ minPt.y }; y < maxPt.y; y += subMapSize)
         {
             pcl::PassThrough<pcl::PointXYZI> filterY;
