@@ -89,13 +89,7 @@ void LidarToMap::TransformCloud()
                     std::cout << "transform cloud at: " <<
                         msg->header.stamp << std::endl;
                     pcl::transformPointCloud(pclCloud, pclCloudT, *transform);
-                    pcl::PassThrough<pcl::PointXYZI> filter;
-                    filter.setInputCloud(pclCloudT.makeShared());
-                    filter.setFilterFieldName("z");
-                    filter.setFilterLimits(0.0, 1.0);
-                    pcl::PointCloud<pcl::PointXYZI> cloud;
-                    filter.filter(cloud);
-                    mMap += cloud;
+                    mMap += pclCloudT;
                 }
             }
         }
@@ -110,6 +104,8 @@ void LidarToMap::CreateMap(const std::string & outputFolder)
     const auto subMapSize = 100.0;
     auto ix = 0u;
     auto iy = 0u;
+    std::cout << "x:" << minPt.x << "~" << maxPt.x << std::endl;
+    std::cout << "y:" << minPt.y << "~" << maxPt.y << std::endl;
     for (auto x{ minPt.x }; x < maxPt.x; x += subMapSize)
     {
         pcl::PassThrough<pcl::PointXYZI> filterX;
@@ -127,7 +123,7 @@ void LidarToMap::CreateMap(const std::string & outputFolder)
             pcl::PointCloud<pcl::PointXYZI> cloud;
             filterY.filter(cloud);
             const auto filename = outputFolder + "/sub_map_" +
-                std::to_string(ix ++) + "_" + std::to_string(iy ++);
+                std::to_string(ix) + "_" + std::to_string(iy ++);
             if (!cloud.empty())
             {
                 std::cout << "write ... " << filename << std::endl;
@@ -137,6 +133,7 @@ void LidarToMap::CreateMap(const std::string & outputFolder)
                 std::cout << "write ... " << filename <<
                     " ... empty" << std::endl;
         }
+        ix ++;
     }
 }
 
