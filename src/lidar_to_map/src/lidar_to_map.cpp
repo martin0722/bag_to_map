@@ -123,7 +123,7 @@ void LidarToMap::CreateMap(const std::string & outputFolder)
             pcl::PointCloud<pcl::PointXYZI> cloud;
             filterY.filter(cloud);
             const auto filename = outputFolder + "/sub_map_" +
-                std::to_string(ix) + "_" + std::to_string(iy ++);
+                std::to_string(ix) + "_" + std::to_string(iy ++) + ".pcd";
             if (!cloud.empty())
             {
                 std::cout << "write ... " << filename << std::endl;
