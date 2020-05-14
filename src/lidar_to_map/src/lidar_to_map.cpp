@@ -122,7 +122,7 @@ void LidarToMap::CreateMap(const std::string & outputFolder)
             filterY.setFilterLimits(y, y + subMapSize);
             pcl::PointCloud<pcl::PointXYZI> cloud;
             filterY.filter(cloud);
-            const auto filename = outputFolder + "/sub_map_" +
+            const auto filename = outputFolder + "/submap_" +
                 std::to_string(ix) + "_" + std::to_string(iy ++) + ".pcd";
             if (!cloud.empty())
             {
